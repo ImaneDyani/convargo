@@ -145,37 +145,42 @@ const actors = [{
 }];
 
 
-/*console.log(truckers);
+/*
+// Step 1
+console.log(truckers);
 console.log(deliveries);
 console.log(actors);
 for (var i = 0, len = deliveries.length; i < len; i++) {   
   var truck = truckers.find(function(element) {return element.id ==deliveries[i].truckerId ;});
 deliveries[i].price= truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume;}*/
 
+//Step 2
 console.log(truckers);
 console.log(deliveries);
 console.log(actors);
 for (var i = 0, len = deliveries.length; i < len; i++) {   
   var truck = truckers.find(function(element) {return element.id ==deliveries[i].truckerId ;});
-deliveries[i].price= truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume;}
+deliveries[i].price= truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume;
 
-if deliveries[i].volume > 5
-	var reduction = 10 *( truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume)/100;
-	price-reduction;
-}
-
-if deliveries[i].volume >= 5 && if deliveries[i].volume <10
+if (deliveries[i].volume > 5)
 {
 	var reduction = 10 *( truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume)/100;
-	price-reduction;
+	deliveries[i].price= deliveries[i].price-reduction;
 }
-if deliveries[i].volume >= 10 && if deliveries[i].volume <25
+
+if (deliveries[i].volume >= 5 && deliveries[i].volume <10)
+{
+	var reduction = 10 *( truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume)/100;
+	deliveries[i].price=deliveries[i].price-reduction;
+}
+if (deliveries[i].volume >= 10 && deliveries[i].volume <25)
 {
 	var reduction = 30 *( truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume)/100;
-	price-reduction;
+	deliveries[i].price=deliveries[i].price-reduction;
 }
-if deliveries[i].volume>25
+if (deliveries[i].volume>25)
 {
 	var reduction = 50 *( truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume)/100;
-	price-reduction;
+	deliveries[i].price=deliveries[i].price-reduction;
+}
 }
