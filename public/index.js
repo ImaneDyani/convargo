@@ -144,6 +144,53 @@ const actors = [{
   }]
 }];
 
+
+
+// Step 1
 console.log(truckers);
 console.log(deliveries);
 console.log(actors);
+for (var i = 0, len = deliveries.length; i < len; i++) {   
+  var truck = truckers.find(function(element) {return element.id ==deliveries[i].truckerId ;});
+deliveries[i].price= truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume;}
+
+/*
+//Step 2
+console.log(truckers);
+console.log(deliveries);
+console.log(actors);
+for (var i = 0, len = deliveries.length; i < len; i++) {   
+  var truck = truckers.find(function(element) {return element.id ==deliveries[i].truckerId ;});
+deliveries[i].price= truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume;
+
+if (deliveries[i].volume > 5)
+{
+	var reduction = 10 *( truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume)/100;
+	deliveries[i].price= deliveries[i].price-reduction;
+}
+
+if (deliveries[i].volume >= 5 && deliveries[i].volume <10)
+{
+	var reduction = 10 *( truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume)/100;
+	deliveries[i].price=deliveries[i].price-reduction;
+}
+if (deliveries[i].volume >= 10 && deliveries[i].volume <25)
+{
+	var reduction = 30 *( truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume)/100;
+	deliveries[i].price=deliveries[i].price-reduction;
+}
+if (deliveries[i].volume>25)
+{
+	var reduction = 50 *( truck.pricePerKm * deliveries[i].distance + truck.pricePerVolume * deliveries[i].volume)/100;
+	deliveries[i].price=deliveries[i].price-reduction;
+}
+*/
+//Step 3
+var commission_price = deliveries[i].price *0.3;
+  deliveries[i].commission.insurance = commission_price / 2;
+  commission_price = commission_price / 2;
+  deliveries[i].commission.treasury = Math.floor(deliveries[i].distance/500) +1;
+  commission_price = commission_price - Math.floor(deliveries[i].distance/500) +1;
+  deliveries[i].commission.convargo = commission_price;
+  console.log(deliveries[i].commission)
+  
